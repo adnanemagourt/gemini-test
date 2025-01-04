@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event); // Read request body
   const { prompt } = body;
 
-  const genAI = new GoogleGenerativeAI("AIzaSyBLYV76hoPFYDzaL61Z1wq__BxKo3vUBaQ");
+  const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
   try {
